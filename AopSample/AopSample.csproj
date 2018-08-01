@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheResultAttribute.cs" />
+    <Compile Include="CacheResultInterceptor.cs" />
+    <Compile Include="ICacheProvider.cs" />
+    <Compile Include="ILongWork.cs" />
+    <Compile Include="LongWork.cs" />
+    <Compile Include="MemoryCacheProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
