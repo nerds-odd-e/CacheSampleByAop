@@ -16,8 +16,8 @@ namespace AopSample
         {
             ContainerRegister();
 
-            //var longWork = new LongWork();
-            var longWork = _container.Resolve<ILongWork>();
+            var longWork = new LongWork();
+            //var longWork = _container.Resolve<ILongWork>();
             Console.WriteLine(longWork.Process(1, 2));
             Console.WriteLine();
             Console.WriteLine(longWork.Process(1, 2));
@@ -33,10 +33,10 @@ namespace AopSample
             Console.WriteLine();
             Console.WriteLine(longWork.Process(3, 4));
 
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
 
-            Console.WriteLine(longWork.Process(1, 2));
-            Console.WriteLine(longWork.Process(3, 4));
+            //Console.WriteLine(longWork.Process(1, 2));
+            //Console.WriteLine(longWork.Process(3, 4));
         }
 
         private static void ContainerRegister()
@@ -51,8 +51,7 @@ namespace AopSample
 
             containerBuilder.RegisterType<LongWork>()
                 .As<ILongWork>()
-                .EnableInterfaceInterceptors()
-                .InterceptedBy(typeof(CacheResultInterceptor));
+                .EnableInterfaceInterceptors();
 
             _container = containerBuilder.Build();
         }
